@@ -1,0 +1,13 @@
+IF
+	!Dead("DORN")
+	!InParty("DORN")
+	Global("DORNExists","GLOBAL",0)
+	HasDLC("DORN")
+THEN
+	RESPONSE #100
+		SetGlobal("DORNExists","GLOBAL",1)
+		CreateCreature("DORN",[2747.311],S) // Dorn
+		ActionOverride("DORN",MakeGlobal())
+		ActionOverride("DORN",ChangeAIScript("DORN",OVERRIDE))
+		
+END

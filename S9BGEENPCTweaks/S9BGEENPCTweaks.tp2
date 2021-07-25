@@ -1,0 +1,689 @@
+BACKUP ~s9BGEENPCTweaks\backup~
+AUTHOR ~Smeagolheart@forum.baldursgate.com~
+VERSION ~1.1~
+
+ALWAYS
+	INCLUDE ~s9BGEENPCTweaks/lib/s9functions.tpa~
+	
+	ACTION_IF GAME_IS ~bgee~ BEGIN
+		INCLUDE ~s9BGEENPCTweaks/lib/liam_bgee_vars.tpa~
+		// PRINT @1
+	END ELSE ACTION_IF GAME_IS ~eet~ BEGIN
+		// PRINT @2
+		INCLUDE ~s9BGEENPCTweaks/lib/eet_cpmvars.tpa~
+	END
+END
+
+LANGUAGE ~English~
+		~English~
+		~s9BGEENPCTweaks\translations\English\S9NPCTweaks.tra~	
+		 
+//=================================================================================================
+
+BEGIN @10 DESIGNATED 10
+
+/* BG1 NPCs
+===================================================================================================*/
+
+  ACTION_FOR_EACH ~npc~ IN  
+					~ALORA~
+					~BAELOTH~
+					~BRANWE~
+					~CORAN~
+					~DORN~
+					~EDWIN~
+					~ELDOTH~
+					~IMOEN~
+					~KAGAIN~
+					~KHALID~
+					~KIVAN~
+					~MINSC~
+					~MONTAR~
+					~QUAYLE~
+					~RASAAD~
+					~SAFANA~
+					~SKIE~
+					~TIAX~
+					~XAN~
+					~XZAR~
+					BEGIN
+						ACTION_IF (FILE_EXISTS_IN_GAME ~%npc%.cre~) THEN BEGIN
+							COPY ~s9BGEENPCTweaks\NPC_Portraits\%npc%.bmp~ ~override\%npc%L.bmp~
+							COPY ~s9BGEENPCTweaks\NPC_Portraits\%npc%.bmp~ ~override\%npc%M.bmp~
+							COPY ~s9BGEENPCTweaks\NPC_Portraits\%npc%.bmp~ ~override\%npc%S.bmp~
+						END
+					END
+														
+					LAF s9PatchCrePortrait STR_VAR npc = "AJANTI" file = "AJANTIS" END
+					LAF s9PatchCrePortrait STR_VAR npc = "DYNAHE" file = "DYNAHEI" END
+					LAF s9PatchCrePortrait STR_VAR npc = "FALDOR" file = "FALDORN" END
+					LAF s9PatchCrePortrait STR_VAR npc = "GARRIC" file = "GARRICK" END
+					LAF s9PatchCrePortrait STR_VAR npc = "JAHEIR" file = "JAHEIRA" END
+					LAF s9PatchCrePortrait STR_VAR npc = "SHARTE" file = "SHARTEL" END
+					LAF s9PatchCrePortrait STR_VAR npc = "VICONI" file = "VICONIA" END
+					LAF s9PatchCrePortrait STR_VAR npc = "YESLIC" file = "YESLICK" END
+					
+/* Siege of Dragonspear Variations	
+===================================================================================================*/					
+					ACTION_IF (FILE_EXISTS_IN_GAME ~BDIMOEN.cre~) THEN BEGIN
+						LAF s9PatchCrePortraitv2 STR_VAR npc = "BDIMOEN" filea = "IMOEN" fileb = "BDIMOEN" END
+						LAF s9PatchCrePortraitv2 STR_VAR npc = "VICONI7" filea = "VICONIA" fileb = "BDVICON" END
+					END
+					
+/* BG2 NPCs
+===================================================================================================*/
+					//BG1 -> BG2
+					LAF s9PatchCrePortraitv2 STR_VAR npc = "EDWIN7" filea = "EDWIN" fileb = "NEDWIN" END
+					LAF s9PatchCrePortraitv2 STR_VAR npc = "IMOEN211" filea = "IMOEN" fileb = "NIMOEN" END
+					LAF s9PatchCrePortraitv2 STR_VAR npc = "JAHEI12B" filea = "JAHEIRA" fileb = "NJAHEIR" END
+					LAF s9PatchCrePortraitv2 STR_VAR npc = "MINSC7" filea = "MINSC" fileb = "NMINSC" END
+					LAF s9PatchCrePortraitv2 STR_VAR npc = "VICONI8" filea = "VICONIA" fileb = "NVICON" END
+					
+					//BG2 exclusives
+					LAF s9PatchCrePortrait STR_VAR npc = "AERIE7" file = "NAERIE" END
+					LAF s9PatchCrePortrait STR_VAR npc = "ANOMEN6" file = "NANOMEN" END
+					LAF s9PatchCrePortrait STR_VAR npc = "CERND10" file = "NCERND" END
+					LAF s9PatchCrePortrait STR_VAR npc = "HAER10" file = "NHAER" END					
+					LAF s9PatchCrePortrait STR_VAR npc = "JAN8" file = "NJAN" END
+					LAF s9PatchCrePortrait STR_VAR npc = "KELDOR8" file = "NKELDOR" END
+					LAF s9PatchCrePortrait STR_VAR npc = "KORGAN8" file = "NKORGAN" END
+					LAF s9PatchCrePortrait STR_VAR npc = "MAZZY8" file = "NMAZZY" END
+					LAF s9PatchCrePortrait STR_VAR npc = "NALIA8" file = "NNALIA" END					
+					LAF s9PatchCrePortrait STR_VAR npc = "VALYG8" file = "NVALYGA" END
+					LAF s9PatchCrePortrait STR_VAR npc = "YOSHI7" file = "NYOSHIM" END
+					LAF s9PatchCrePortrait STR_VAR npc = "SAREVOK" file = "SAREVOK" END					
+					
+					//EE exclusives
+					LAF s9PatchCrePortrait STR_VAR npc = "DORN10" file = "DORN" END
+					LAF s9PatchCrePortrait STR_VAR npc = "NEERA10" file = "NEERA" END
+					LAF s9PatchCrePortrait STR_VAR npc = "RASAAD10" file = "RASAAD" END
+					LAF s9PatchCrePortrait STR_VAR npc = "ohhex10" file = "OHHEXX" END				
+					LAF s9PatchCrePortrait STR_VAR npc = "WILSON13" file = "WILSON" END	
+
+					//SOD
+					LAF s9PatchCrePortrait STR_VAR npc = "CORWIN7" file = "SCHAEL" END
+					LAF s9PatchCrePortrait STR_VAR npc = "GLINT7" file = "GLINT" END
+					LAF s9PatchCrePortrait STR_VAR npc = "BDMKHI7" file = "MKHIIN" END
+//=================================================================================================
+		// Standardize Viconia Colors to SOD colorscheme
+		ACTION_FOR_EACH ~crefile~ IN
+			   ~VICONI~
+			   ~VICONI4~
+			   ~VICONI6~
+			   ~VICONI6_~
+			   ~VICONI11~
+			   ~VICONI13~
+			   ~VICONI16~
+			   ~VICONI6~
+			   //~VICONI7~
+			   ~VICONI8~
+			   ~VICONI9~			   
+		BEGIN
+			ACTION_IF FILE_EXISTS_IN_GAME ~%crefile%.cre~ THEN BEGIN
+				COPY_EXISTING ~%crefile%.cre~ ~override~
+						WRITE_BYTE 0x002c 28  		// Metal Colour Index
+						WRITE_BYTE 0x002d  117 		// Minor 
+						WRITE_BYTE 0x002e  0 - 66 	// Major 
+						WRITE_BYTE 0x002f  0 - 72 	// Skin 
+						WRITE_BYTE 0x0030  66 		// Leather 
+						WRITE_BYTE 0x0031  83 		// Armor 
+						WRITE_BYTE 0x0032  105 		// Hair 
+				END
+		END
+
+BEGIN @20 
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ @5
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~ohtempus.2da~ @6
+DESIGNATED 20
+	//Add Priest of Tempus kit
+	//Code from EET Tweaks mod by K4thos
+
+	LOAD_TRA ~s9BGEENPCTweaks/translations/%LANGUAGE%/tempus.tra~
+
+	ACTION_IF GAME_IS ~bgee~ BEGIN
+		OUTER_SET kit_biography = 15884
+		OUTER_SET kit_briefdesc = 31255
+	END ELSE ACTION_IF GAME_IS ~bg2ee~ BEGIN
+		OUTER_SET kit_biography = ~-1~
+		OUTER_SET kit_briefdesc = 102495
+	END ELSE BEGIN //eet
+		OUTER_SET kit_biography = 15884
+		OUTER_SET kit_briefdesc = 102495
+	END
+
+	ADD_KIT ~OHTEMPUS~
+		// CLASS WEAPON PROFICIENCIES_____
+		//                 S L            
+		//                 M A            
+		//                 A R            
+		//                 L G   M        
+		//                 L E   I   S    
+		//                 S S B S   P   S
+		//                 W W L S   I   P
+		//                 O O U I B K A E
+		//                 R R N L O E X A
+		// CLASWEAP.2DA    D D T E W D E R
+		~OHTEMPUS          0 0 1 1 0 1 0 0~
+		// WEAPON PROFICIENCIES_________________________________________________________________________________________________
+		//                                         T   S           F   Q             S S                                        
+		//                 L S                     W   C           L   U             W I                                        
+		//                 A M             B L S   O   I   W       A   A             O N                                        
+		//                 R A             A O H   H   M   A       I   R C   S       R G                                        
+		//                 G L           M S N O   A   I   R     H L   T R L H     2 D L 2                 E E E E E E E E E E E
+		//                 E L       S   I T G R   N K T D H     A M   E O O O     H A E W E E E E E E E E X X X X X X X X X X X
+		//                 S S   S B P   S A S T   D A A A A   S L O   R S N R   S A N W E X X X X X X X X T T T T T T T T T T T
+		//                 W W   P L I   S R W S   E T R G M C P B R M S S G T D L N D E A T T T T T T T T R R R R R R R R R R R
+		//                 O O B E U K A I D O W A D A W G M L E E N A T B B B A I D S A P R R R R R R R R A A A A A A A A A A A
+		//                 R R O A N E X L S R O X S N A E E U A R I C A O O O R N E H P O A A A A A A A A 1 1 1 1 1 1 1 1 1 1 2
+		// WEAPPROF.2DA    D D W R T D E E W D R E W A K R R B R D N E F W W W T G D I O N 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
+		~OHTEMPUS          0 0 0 0 1 1 0 1 0 0 0 0 0 0 0 0 1 1 0 0 1 1 1 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+		// MINIMUM KIT STATS______________________
+		// ABCLASRQ.2DA    STR DEX CON INT WIS CHR
+		~OHTEMPUS          0   0   0   0   9   0~
+		// KIT STAT MODIFIERS_____________________
+		// ABCLSMOD.2DA    STR DEX CON INT WIS CHR
+		~OHTEMPUS          0   0   0   0   0   0~
+		// REQUIREMENTS TO DUAL TO THIS KIT_______
+		// ABDCDSRQ.2DA    STR DEX CON INT WIS CHR
+		~OHTEMPUS          0   0   0   0   17  0~
+		// REQUIREMENTS TO DUAL FROM THIS KIT_____
+		// ABDCSCRQ.2DA    STR DEX CON INT WIS CHR
+		~OHTEMPUS          0   0   0   0   15  0~
+		// ALIGNMENT RESTRICTIONS____________________
+		// ALIGNMNT.2DA    LG LN LE NG TN NE CG CN CE
+		~OHTEMPUS          0  0  0  0  1  0  1  1  1~
+		// DUAL CLASS OPTIONS_______________
+		// DUALCLASS.2DA   FT CL MA TH DR RA
+		~OHTEMPUS          1  0  1  1  0  1~
+		// KIT ABILITIES 2DA FILE (path to CLAB-type file)
+		~s9BGEENPCTweaks/Tempus/OHTEMPUS.2DA~
+		// RACIAL KIT AVAILABILITY____________________________________
+		//                                                    H       
+		//                                             H      A      H
+		//                                             A      L      A
+		//                 H      D      G             L      F      L
+		//                 U      W      N             F      L      F
+		//                 M      A      O      E      E      I      O
+		//                 A      R      M      L      L      N      R
+		// KITTABLE.2DA    N      F      E      F      F      G      C
+		~                  K_C_H  K_C_D  K_C_G  K_C_E  K_C_HE K_C_HL K_C_HO~
+		// UNUSABLE FLAGS AND KIT BASE CLASS
+		// CLASSES: Mage = 1, Fighter = 2, Cleric=3, Thief = 4, Bard = 5, Paladin 6, Druid = 11, Ranger = 12, Sorcerer = 19, Monk = 20
+		// KITLIST.2DA
+		~                  0x00004000 3~
+		// HIGH LEVEL ABILITIES ABBREVIATION
+		// LUABBR.2DA
+		~                  Cl0~
+		// TOB STARTING EQUIPMENT__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+		//                                                                                                                                      B                                                                                                                                 W
+		//                              S                                                                C                         A            R                                                                                                                                 E
+		//                 A            H                                      R            R            L            B            M            A                         A            A            A            M            M            M            M            M            A
+		//                 R            I            H                         I            I            O            O            U            C            B            M            M            M            I            I            I            I            I            P
+		//                 M            E            E            B            N            N            A            O            L            E            E            M            M            M            S            S            S            S            S            O
+		//                 O            L            L            A            G            G            C            T            E            R            L            O            O            O            C            C            C            C            C            N
+		// 25STWEAP.2DA    R            D            M            G            1            2            K            S            T            S            T            1            2            3            1            2            3            4            5            1
+		~                  CHAN09       *            HELM07       BAG20        RING06       RING31       *            BOOT01       AMUL19       BRAC16       BELT06       AROW11,40    BULL03,40    BOLT06,40    POTN52,5     POTN04,2     POTN14,5     HAMM07       SW1H27       STAF08~
+		// CHARACTER CREATION KIT DESCRIPTION
+		// KITLIST.2DA     LOWER
+		SAY                @26000000
+		// KITLIST.2DA     MIXED
+		SAY                @26000001
+		// KITLIST.2DA     HELP
+		SAY                @26000002
+
+		INCLUDE ~s9BGEENPCTweaks/lib/fl#add_kit_ee.tpa~
+		LAF ~fl#add_kit_ee~
+			INT_VAR
+			//CLASTEXT.2DA
+				biography     = ~kit_biography~
+				briefdesc     = ~kit_briefdesc~
+				fallen        = ~0~
+				fallen_notice = ~-1~
+			STR_VAR
+				kit_name      = ~OHTEMPUS~
+			//CLSWPBON.2DA       GETS_PROF_APR       UNARMED_DIVISOR     ZERO_SKILL_THAC0
+				clswpbon      = ~0                   0                   3~
+			//NUMWSLOT.2DA       SLOTS
+				numwslot      = ~2~
+			//CLASCOLR.2DA       METAL     MINOR_CLOTH     MAIN_CLOTH     LEATHER     ARMOR
+				clascolr      = ~80        126             127            93          97~
+			//CLASISKL.2DA       PICK_POCKETS     OPEN_LOCKS     FIND_TRAPS     MOVE_SILENTLY     HIDE_IN_SHADOWS     DETECT_ILLUSION     SET_TRAPS
+				clasiskl      = ~0                0              0              0                 0                   0                   0~
+			//THIEFSCL.2DA       PICK_POCKETS     OPEN_LOCKS     FIND_TRAPS     MOVE_SILENTLY     HIDE_IN_SHADOWS     DETECT_ILLUSION     SET_TRAPS     STEALTH
+				thiefscl      = ~0                0              0              0                 0                   0                   0             0~
+			//HPCLASS.2DA        TABLE
+				hpclass       = ~HPPRS~
+			//CLSRCREQ.2DA       HUMAN               ELF                 HALF_ELF            DWARF               HALFLING            GNOME               HALFORC
+				clsrcreq      = ~1                   1                   1                   1                   1                   1                   1~
+			//CLASTHAC.2DA       BONUS
+				clasthac      = ~0~
+		END
+
+		ACTION_FOR_EACH file IN CLASWEAP WEAPPROF ABCLASRQ ABCLSMOD ABDCDSRQ ABDCSCRQ ALIGNMNT DUALCLAS KITTABLE KITLIST LUABBR 25STWEAP CLASTEXT BACKSTAB CLSWPBON NUMWSLOT THIEFSKL TRAPLIMT CLASCOLR CLASISKL THIEFSCL HPCLASS CLSRCREQ CLASTHAC SNEAKATT CRIPPSTR K_C_H K_C_D K_C_G K_C_E K_C_HE K_C_HL K_C_HO BEGIN
+			ACTION_IF FILE_EXISTS_IN_GAME ~%file%.2da~ BEGIN
+				COPY_EXISTING ~%file%.2da~ ~override~
+					PRETTY_PRINT_2DA
+				BUT_ONLY
+			END
+		END
+
+		COPY ~s9BGEENPCTweaks/Tempus/ohtmps1.spl~ ~override~
+			SAY 0x8 @26000003
+			SAY 0x50 @26000004
+
+		COPY ~s9BGEENPCTweaks/Tempus/ohtmps2.spl~ ~override~
+			SAY 0x8 @26000005
+			SAY 0x50 @26000006
+
+		ADD_PROJECTILE ~s9BGEENPCTweaks/Tempus/ohvrpo.PRO~
+		COPY ~s9BGEENPCTweaks/Tempus/ohtmps2d.spl~ ~override~
+			PATCH_FOR_EACH offset IN 0x1ce 0x4ce 0x7ce 0xace 0xdce BEGIN
+				SAY offset @26000007
+			END
+			PATCH_FOR_EACH offset IN 0x98 0xc0 0xe8 0x110 0x138 BEGIN
+				WRITE_SHORT offset ohvrpo
+			END
+
+		ADD_PROJECTILE ~s9BGEENPCTweaks/Tempus/ohvrnp.PRO~
+		COPY ~s9BGEENPCTweaks/Tempus/ohtmps2e.spl~ ~override~
+			PATCH_FOR_EACH offset IN 0x1ce 0x4ce 0x7ce 0xace 0xdce BEGIN
+				SAY offset @26000008
+			END
+			PATCH_FOR_EACH offset IN 0x98 0xc0 0xe8 0x110 0x138 BEGIN
+				WRITE_SHORT offset ohvrnp
+			END
+
+		COPY ~s9BGEENPCTweaks/Tempus/OHTMPSHS.spl~ ~override~
+
+		COPY ~s9BGEENPCTweaks/Tempus/OHTMPSHS.itm~ ~override~
+			SAY 0xc @25000009
+			SAY 0x54 @25000010
+
+		ACTION_FOR_EACH ext IN BAM VVC WAV BEGIN
+			ACTION_BASH_FOR ~s9BGEENPCTweaks/Tempus~ ~.*\.%ext%$~ BEGIN
+				ACTION_IF NOT FILE_EXISTS_IN_GAME ~%BASH_FOR_FILE%~ BEGIN
+					COPY ~%BASH_FOR_FILESPEC%~ ~override~
+				END
+			END
+		END
+
+		COPY ~s9BGEENPCTweaks/Tempus/OHTEMPUS.2DA~ ~override~	
+		
+BEGIN @30
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~  @600  // This component requires either BG:EE or EET to be installed
+REQUIRE_PREDICATE (NOT ((MOD_IS_INSTALLED ~EE_content_tweaks.tp2~ 2) OR 
+					  (MOD_IS_INSTALLED ~EE_content_tweaks.tp2~ 5)))  @606
+FORBID_COMPONENT ~setup-scs.tp2~ 3070 @598
+FORBID_COMPONENT ~setup-stratagems.tp2~ 4130 @598	
+FORBID_COMPONENT ~bg1npc.tp2~ 1070 @598
+DESIGNATED 30
+
+ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN	
+	/* Alora to start in Gullykin near the door to the winery. */
+	// code borrowed from BG1NPC authored and coded by tons of dedicated people from all walks of life 
+    COPY_EXISTING ~baldur.gam~ ~override~
+      READ_LONG 0x30 non_joined_npcs_off
+      READ_LONG 0x34 non_joined_npcs_count
+      FOR (i = 0; i < non_joined_npcs_count; i+=1) BEGIN
+        SET cre_offset = non_joined_npcs_off + i * 0x160
+        READ_ASCII 0xc + cre_offset ~CREName~
+        PATCH_IF (~%CREName%~ STR_EQ ~%ALORA_BCS%~) BEGIN
+			WRITE_ASCIIE cre_offset + 0x18 ~%Gullykin%~ #8
+			WRITE_SHORT cre_offset + 0x20 553
+			WRITE_SHORT cre_offset + 0x22 506
+        END
+      END
+      BUT_ONLY_IF_IT_CHANGES
+	  
+	COMPILE EVALUATE_BUFFER ~s9BGEENPCTweaks/dialogue/x#aloramoves.d~
+		USING ~s9BGEENPCTweaks/translations/english/X#ALORAN.TRA~
+
+    COPY_EXISTING ~%HallofWonders_BCS%.bcs~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+    	REPLACE_TEXTUALLY ~!InParty("alora")~ ~!InParty("alora") Global("X#AloraDontBeDifficult","GLOBAL",1)~
+      END
+      BUT_ONLY_IF_IT_CHANGES	  
+
+/* Coran to Cloakwood Lodge near the bridge */
+	COPY_EXISTING ~baldur.gam~ ~override~
+	READ_LONG 0x30 non_joined_npcs_off
+	READ_LONG 0x34 non_joined_npcs_count
+	FOR (i = 0; i < non_joined_npcs_count; i+=1) BEGIN
+		SET cre_offset = non_joined_npcs_off + i * 0x160
+		READ_ASCII 0xc + cre_offset ~CREName~
+		PATCH_IF (~%CREName%~ STR_EQ ~%CORAN_BCS%~) BEGIN
+			WRITE_ASCIIE cre_offset + 0x18 ~%CloakwoodLodge%~ #8
+			WRITE_SHORT cre_offset + 0x20 1857
+			WRITE_SHORT cre_offset + 0x22 949
+			END
+		END
+		BUT_ONLY_IF_IT_CHANGES
+	//extend Coran's quest timer
+	EXTEND_BOTTOM ~%CloakwoodNest%.bcs~ ~s9BGEENPCTweaks/baf/corantimer.baf~
+	COMPILE ~s9BGEENPCTweaks/dialogue/coran.d~  
+
+/* Dorn BGEE: Nashkel Mines next to the Cabin */
+	EXTEND_BOTTOM ~%NashkelMines%.bcs~ ~s9BGEENPCTweaks/baf/AREA5400.baf~
+	COMPILE ~s9BGEENPCTweaks/dialogue/dorn.d~
+
+	COPY_EXISTING ~%FriendlyArmInn_L1%.bcs~ ~override~
+	DECOMPILE_BCS_TO_BAF
+	REPLACE_TEXTUALLY ~Global("DORNExists","GLOBAL",0)~ ~False()~
+	COMPILE_BAF_TO_BCS	
+
+/* Dorn SOD: Three Old Kegs and Flaming Fist Camp */	
+	ACTION_IF FILE_EXISTS_IN_GAME ~DORN7.cre~ THEN BEGIN
+		EXTEND_BOTTOM ~BD0106.bcs~ ~s9BGEENPCTweaks/lib/soddorn.baf~
+		COPY_EXISTING ~BD2000.bcs~ ~override~
+		DECOMPILE_BCS_TO_BAF
+		REPLACE_TEXTUALLY ~Global("bd_dorn_spawn","bd2000",0)~ ~False()~
+		COMPILE_BAF_TO_BCS
+		
+		COPY_EXISTING ~BD3000.bcs~ ~override~
+		DECOMPILE_BCS_TO_BAF
+		REPLACE_TEXTUALLY ~GlobalGT("bd_dorn_join","global",0)~ ~True()~
+		COMPILE_BAF_TO_BCS	
+	END	
+	  
+/* Eldoth to Beregost Red Sheaf near Bartender */
+	COPY_EXISTING ~baldur.gam~ ~override~
+	READ_LONG 0x30 non_joined_npcs_off
+	READ_LONG 0x34 non_joined_npcs_count
+	FOR (i = 0; i < non_joined_npcs_count; i+=1) BEGIN
+		SET cre_offset = non_joined_npcs_off + i * 0x160
+		READ_ASCII 0xc + cre_offset ~CREName~
+		PATCH_IF (~%CREName%~ STR_EQ ~%ELDOTH_BCS%~) BEGIN
+			WRITE_ASCIIE cre_offset + 0x18 ~%Beregost_RedSheaf_L1%~ #8
+			WRITE_SHORT cre_offset + 0x20 772
+			WRITE_SHORT cre_offset + 0x22 300
+			END
+		END
+		BUT_ONLY_IF_IT_CHANGES
+	COMPILE ~s9BGEENPCTweaks/dialogue/eldoth.d~
+	
+/* Quayle to start at the Nashkel Carnival near Great Gazib's show. */
+	COPY_EXISTING ~baldur.gam~ ~override~
+	READ_LONG 0x30 non_joined_npcs_off
+	READ_LONG 0x34 non_joined_npcs_count
+	FOR (i = 0; i < non_joined_npcs_count; i+=1) BEGIN
+		SET cre_offset = non_joined_npcs_off + i * 0x160
+		READ_ASCII 0xc + cre_offset ~CREName~
+		PATCH_IF (~%CREName%~ STR_EQ ~%QUAYLE_BCS%~) BEGIN
+			WRITE_ASCIIE cre_offset + 0x18 ~%NashkelCarnival%~ #8
+			WRITE_SHORT cre_offset + 0x20 1133
+			WRITE_SHORT cre_offset + 0x22 2940
+			END
+		END
+	BUT_ONLY_IF_IT_CHANGES
+
+/* Safana to the Jovial Juggler. */
+	COPY_EXISTING ~baldur.gam~ ~override~
+	READ_LONG 0x30 non_joined_npcs_off
+	READ_LONG 0x34 non_joined_npcs_count
+	FOR (i = 0; i < non_joined_npcs_count; i+=1) BEGIN
+		SET cre_offset = non_joined_npcs_off + i * 0x160
+		READ_ASCII 0xc + cre_offset ~CREName~
+		PATCH_IF (~%CREName%~ STR_EQ ~%SAFANA_BCS%~) BEGIN
+			WRITE_ASCIIE cre_offset + 0x18 ~%Beregost_JovialJuggler_L1%~ #8
+			WRITE_SHORT cre_offset + 0x20 135
+			WRITE_SHORT cre_offset + 0x22 966
+			END
+		END
+	BUT_ONLY_IF_IT_CHANGES	
+	COMPILE ~s9BGEENPCTweaks/dialogue/safana.d~
+
+/* Shar-Teel to South Beregost Road */
+	COPY_EXISTING ~baldur.gam~ ~override~
+	READ_LONG 0x30 non_joined_npcs_off
+	READ_LONG 0x34 non_joined_npcs_count
+	FOR (i = 0; i < non_joined_npcs_count; i+=1) BEGIN
+		SET cre_offset = non_joined_npcs_off + i * 0x160
+		READ_ASCII 0xc + cre_offset ~CREName~
+		PATCH_IF (~%CREName%~ STR_EQ ~SHARTE~) BEGIN
+			WRITE_ASCIIE cre_offset + 0x18 ~%SouthBeregostRoad%~ #8
+			WRITE_SHORT cre_offset + 0x20 4160
+			WRITE_SHORT cre_offset + 0x22 735
+			END
+		END
+	BUT_ONLY_IF_IT_CHANGES	
+	
+	EXTEND_TOP ~%SouthBeregostRoad%.bcs~ ~s9BGEENPCTweaks/baf/sharteel_ee.baf~
+	COMPILE ~s9BGEENPCTweaks/dialogue/sharte.d~
+	
+	COPY_EXISTING ~SHARTEL2.bcs~ ~override~	
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~%MutaminsGarden%~ ~%SouthBeregostRoad%~
+		END
+	BUT_ONLY_IF_IT_CHANGES	
+	
+	COPY_EXISTING ~%MutaminsGarden%.bcs~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~Global("SHARTEELFIGHT","GLOBAL",2)~ ~Global("S9SharteelDontBeDifficult","GLOBAL",1)~   // kill these highly unlikely triggers
+		REPLACE_TEXTUALLY ~Global("SHARTEELFIGHT","GLOBAL",1)~ ~Global("S9SharteelDontBeDifficult","GLOBAL",1)~
+		END
+	BUT_ONLY_IF_IT_CHANGES
+	
+/* Tiax to Beregost between Feldepost's Inn and Kaigan's Shop  */
+	COPY_EXISTING ~baldur.gam~ ~override~
+	READ_LONG 0x30 non_joined_npcs_off
+	READ_LONG 0x34 non_joined_npcs_count
+	FOR (i = 0; i < non_joined_npcs_count; i+=1) BEGIN
+		SET cre_offset = non_joined_npcs_off + i * 0x160
+		READ_ASCII 0xc + cre_offset ~CREName~
+		PATCH_IF (~%CREName%~ STR_EQ ~%TIAX_BCS%~) BEGIN
+			WRITE_ASCIIE cre_offset + 0x18 ~%Beregost%~ #8
+			WRITE_SHORT cre_offset + 0x20 1717
+			WRITE_SHORT cre_offset + 0x22 2433
+			END
+		END
+		BUT_ONLY_IF_IT_CHANGES
+
+/* Viconia to behind the Temple  */
+	COPY_EXISTING ~baldur.gam~ ~override~
+	READ_LONG 0x30 non_joined_npcs_off
+	READ_LONG 0x34 non_joined_npcs_count
+	FOR (i = 0; i < non_joined_npcs_count; i+=1) BEGIN
+		SET cre_offset = non_joined_npcs_off + i * 0x160
+		READ_ASCII 0xc + cre_offset ~CREName~
+		PATCH_IF (~%CREName%~ STR_EQ ~VICONI~) BEGIN
+			WRITE_ASCIIE cre_offset + 0x18 ~%Temple%~ #8
+			WRITE_SHORT cre_offset + 0x20 2337
+			WRITE_SHORT cre_offset + 0x22 868
+			END
+		END
+		BUT_ONLY_IF_IT_CHANGES
+	COMPILE ~s9BGEENPCTweaks/dialogue/viconia.d~
+	
+/* Baeloth spawns near the entrance of High Hedge */
+	COPY_EXISTING ~%Larswood%.bcs~ ~override~
+	DECOMPILE_BCS_TO_BAF
+	REPLACE_TEXTUALLY ~Global("BAINVI","GLOBAL",0)~ ~False()~
+	COMPILE_BAF_TO_BCS
+
+	EXTEND_TOP ~%HighHedge%.bcs~ ~s9BGEENPCTweaks/baf/s9-bae.baf~
+	LAF S9MoveBaeloth END
+END	
+	// Passivize Hexxat, Neera & Rasaad	
+	// code from Argent77 used with permission
+	LAF A7PassiveHexxat END
+	LAF A7PassiveNeera END
+	LAF A7PassiveRasaad END
+
+// Adjust NPC Classes
+BEGIN @41
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @5
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME OHTEMPUS.2DA @605
+//REQUIRE_PREDICATE FILE_EXISTS OHTEMPUS.2DA @605
+//GROUP @50
+DESIGNATED 41
+	
+	// Make Branwen a Priest of Tempus	
+	
+	COPY_EXISTING ~kitlist.2da~ ~override~
+		COUNT_2DA_ROWS 8 "rows"
+		FOR ( index = 31 ; index < rows ; index = index + 1 ) BEGIN
+			READ_2DA_ENTRY "%index%" 5 8 "clab"
+				PATCH_IF ("%clab%" STRING_EQUAL_CASE "OHTEMPUS" = 1) BEGIN
+			SET "OHTEMPUS" = "%index%"-1
+			SET "rows" = 0
+			END
+		END
+	BUT_ONLY	
+	
+	COPY_EXISTING ~BRANWE.cre~ ~override~
+		WRITE_BYTE 0x246 ~%OHTEMPUS%~
+	
+	
+// Make Dynaheir a Sorcerer
+BEGIN @400
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @600  // This component requires either BG:EE or EET to be installed
+GROUP @50	
+	ACTION_IF FILE_EXISTS_IN_GAME ~DYNAHE.cre~ THEN BEGIN
+		COPY_EXISTING ~DYNAHE.CRE~ ~override~
+			WRITE_BYTE 0x273 19
+	END	
+	
+	ACTION_IF FILE_EXISTS_IN_GAME ~DYNAHE7.cre~ THEN BEGIN
+		COPY_EXISTING ~DYNAHE7.cre~ ~override~
+			WRITE_BYTE 0x273 19
+	END		
+
+// Make Eldoth a Jester
+BEGIN @405
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @600  // This component requires either BG:EE or EET to be installed
+GROUP @50
+	COPY_EXISTING ~ELDOTH.cre~ ~override~
+		WRITE_SHORT 0x246  0x400E	
+		
+// Make Faldorn an Avenger
+BEGIN @410
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @600  // This component requires either BG:EE or EET to be installed
+GROUP @50
+	COPY_EXISTING ~FALDOR.cre~ ~override~
+		WRITE_SHORT 0x246 0x4012				
+
+// Make Garrick a Skald
+BEGIN @415
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @600  // This component requires either BG:EE or EET to be installed
+GROUP @50
+	COPY_EXISTING ~GARRIC.cre~ ~override~
+		WRITE_SHORT 0x246 0x400F
+		
+// Make Kagain a Dwarven Defender
+BEGIN @418
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @600  // This component requires either BG:EE or EET to be installed
+GROUP @50	
+	COPY_EXISTING ~KAGAIN.cre~ ~override~
+		WRITE_SHORT 0x246 0x4022
+
+// Make Khalid a Fighter/Mage
+BEGIN @419
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @600  // This component requires either BG:EE or EET to be installed
+GROUP @50
+	COPY_EXISTING ~KHALID.cre~ ~override~
+		WRITE_BYTE 0x0010 0
+		WRITE_SHORT 0x244 0
+		WRITE_BYTE 0x273 7	  // Class
+		WRITE_BYTE 0x0066 10  // Lore
+		WRITE_SHORT 0x0024 7
+		WRITE_SHORT 0x0026 7
+		REMOVE_CRE_ITEM ~CHAN04~		
+		ADD_CRE_ITEM ~CHAN04~ #0 #0 #0 ~IDENTIFIED~ ~INV1~   	// Splint Mail to backpack
+		ADD_KNOWN_SPELL ~SPWI114~ #0 ~wizard~ //Shield	
+		ADD_KNOWN_SPELL ~SPWI110~ #0 ~wizard~ //Identify
+		ADD_KNOWN_SPELL ~SPWI101~ #0 ~wizard~ //Grease
+		ADD_MEMORIZED_SPELL ~SPWI114~ #0 ~wizard~	
+		ADD_CRE_ITEM ~BRAC02~ #0 #0 #0 ~IDENTIFIED~ ~GLOVES~ 	// Bracers of Defense AC 7
+
+// Make Kivan an Archer
+BEGIN @420
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @600  // This component requires either BG:EE or EET to be installed
+GROUP @50
+	COPY_EXISTING ~KIVAN.cre~ ~override~
+		WRITE_SHORT 0x246 0x4007
+		ADD_CRE_ITEM ~sw1h04~ #0 #0 #0 ~IDENTIFIED~ ~WEAPON1~ EQUIP
+		SET_BG2_PROFICIENCY 114 2
+		SET_BG2_PROFICIENCY 104 2
+		SET_BG2_PROFICIENCY 99 1
+		SET_BG2_PROFICIENCY 90 1
+
+// Make Safana a Swashbuckler
+BEGIN @430
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @600  // This component requires either BG:EE or EET to be installed
+GROUP @50	
+	ACTION_IF FILE_EXISTS_IN_GAME ~SAFANA.cre~ THEN BEGIN
+		COPY_EXISTING ~SAFANA.CRE~ ~override~
+			WRITE_SHORT 0x246 0x400C
+	END	
+	
+	ACTION_IF FILE_EXISTS_IN_GAME ~SAFANA7.cre~ THEN BEGIN
+		COPY_EXISTING ~SAFANA7.cre~ ~override~
+			WRITE_SHORT 0x246 0x400C
+	END
+			
+// Make Shar-Teel a Berserker
+BEGIN @440
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @600  // This component requires either BG:EE or EET to be installed
+SUBCOMPONENT @451
+GROUP @50
+	COPY_EXISTING ~SHARTE.cre~ ~override~
+		WRITE_SHORT 0x246 0x4001
+		WRITE_SHORT 0x0024 10
+		WRITE_SHORT 0x0026 10		
+
+// Make Shar-Teel a Barbarian
+BEGIN @441
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @600  // This component requires either BG:EE or EET to be installed
+SUBCOMPONENT @451
+GROUP @50	
+	COPY_EXISTING ~SHARTE.cre~ ~override~
+		WRITE_SHORT 0x244 0x4000
+		WRITE_SHORT 0x246 0x0000
+		WRITE_SHORT 0x0024 12
+		WRITE_SHORT 0x0026 12
+		
+// Make Skie a Shadowdancer
+BEGIN @450
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @600  // This component requires either BG:EE or EET to be installed
+GROUP @50
+	COPY_EXISTING ~SKIE.cre~ ~override~
+		WRITE_SHORT 0x246 0x4021
+		WRITE_BYTE 0x0045 35 		// hide in shadows
+		WRITE_BYTE 0x0064 10 		// detect illusion
+		WRITE_BYTE 0x0065 0 		// set traps
+		WRITE_BYTE 0x0067 0 		// open locks
+		WRITE_BYTE 0x0068 35 		// move silently
+		WRITE_BYTE 0x0069 0 		// find traps
+		WRITE_BYTE 0x006a 10  		// pick pockets
+
+BEGIN @60
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @600  // This component requires either BG:EE or EET to be installed
+DESIGNATED 60
+	// Dual Class Friendly Stats for Branwen, Dynaheir, Safana and Xzar
+
+	//Note that Dynaheir will be unable to dual class if she is modded into a sorcerer.  
+	//Hopefully this will change someday and sorcerers will be unlocked to be able to dual class.	
+	PRINT @401
+	LOG @401
+	COPY_EXISTING ~DYNAHE.cre~ ~override~
+		WRITE_BYTE 0x023b 17 // wisdom + 2	
+
+	ACTION_IF FILE_EXISTS_IN_GAME ~DYNAHE7.cre~ THEN BEGIN
+		COPY_EXISTING ~DYNAHE7.CRE~ ~override~
+			WRITE_BYTE 0x023b 17   	// wisdom + 2
+	END		
+	
+	COPY_EXISTING ~BRANWE.cre~ ~override~
+		WRITE_BYTE 0x023c 17	//dex + 1
+
+	COPY_EXISTING ~SAFANA.cre~ ~override~
+		WRITE_BYTE 0x023a 17   	//Int + 1
+	
+	ACTION_IF FILE_EXISTS_IN_GAME ~SAFANA7.cre~ THEN BEGIN
+		COPY_EXISTING ~SAFANA7.CRE~ ~override~
+			WRITE_BYTE 0x023a 17   	//Int + 1
+	END
+		
+	COPY_EXISTING ~XZAR.cre~ ~override~
+		WRITE_BYTE 0x023b 17  	// wisdom + 1
+		WRITE_BYTE 0x023c 17  	// dex + 1

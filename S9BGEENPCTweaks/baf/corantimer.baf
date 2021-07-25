@@ -1,0 +1,9 @@
+IF
+    Global("S9CoranTimer", "GLOBAL", 0)
+    InParty("Coran")
+THEN
+    RESPONSE #100
+        SetGlobalTimer("Coran", "GLOBAL", EIGHT_DAYS)
+		SetGlobal("S9CoranTimer", "GLOBAL", 1)
+END
+

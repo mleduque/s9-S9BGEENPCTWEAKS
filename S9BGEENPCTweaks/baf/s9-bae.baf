@@ -1,0 +1,7 @@
+IF
+	Global("BAINVI","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("BAINVI","GLOBAL",1)
+		CreateCreature("BAINVI",[2662.2816],S) // No such index
+END

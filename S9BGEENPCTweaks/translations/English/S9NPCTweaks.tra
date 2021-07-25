@@ -1,0 +1,65 @@
+@1=~BG:EE Variables~
+@2=~EET Variables~
+@5=~This component is not compatible with your game~
+@6=~This kit is already in the game~
+@10=~NPC Portraits~
+@20=~Add Priest of Tempus kit~
+@30=~Convenient NPCs~
+@41=~Make Branwen a Priest of Tempus~
+@50=~Adjust NPC Classes~
+@60=~Dual Class Friendly Stats for Branwen, Dynaheir, Safana and Xzar~
+@400=~Make Dynaheir a Sorcerer~
+@401=~Note: Dynaheir if a Sorcerer, will be unable to dual class due to hardcoded limitations.~
+@405=~Make Eldoth a Jester~
+@410=~Make Faldorn an Avenger~
+@415=~Make Garrick a Skald~
+@418=~Make Kagain a Dwarven Defender~
+@419=~Make Khalid a Fighter/Mage~
+@420=~Make Kivan an Archer~
+@430=~Make Safana a Swashbuckler~
+@440=~Make Shar-Teel a Berserker~
+@441=~Make Shar-Teel a Barbarian~
+@450=~Make Skie a Shadowdancer~
+@451=~Shar-Teel's Class~
+@598 = ~NPCs have been already moved by another mod.~
+@600 = ~This component requires either BG:EE or EET to be installed.~
+@601 = ~This component requires either BG2:EE or EET to be installed.~
+@605 = ~This component requires Priest of Tempus kit to be installed and is a component of 'Adjust NPC Classes".~
+@606 = ~This component is incompatible with EE content tweaks components 2 and 5.~
+
+// Faldorn @777 and @6138
+@1000 = ~A group of men have been defiling the woodlands to the west with smoke and waste.  I must stop them.  I have travelled here in seek of comrades to help put an end to these men and their evil ways.  I will not hide the truth, I seek to destroy these men.  Would you join me in my task?~
+@1001 = ~Have you changed your minds about putting an end to those evil men?  Together we can end the defiling of Cloakwood Forest.~
+
+// Eldoth @867 and @868
+@1010 = ~It is a surprise to find such beautiful people here.  Ah but you look a bit down on your times, why not rest?  I'll treat you to some refreshments.  Perhaps some Berduskan amber wine?~
+@1011 = ~Sorry if I seem out of breath, but I had to retreat from a battle.  I was ambushed by dozens of gnolls just outside of town.  I handily dispatched them but thought better of fighting their half dozen ogre friends.  Would any of you care for a drink of some fine Selgauntian brandy?~
+
+// Coran @896
+@1020 = ~Its refreshing to find other people in this place.  My name is Coran: thief and archer!  I've been alone in the wilderness for far too long.  I wouldn't mind returning to the big city but I have yet to collect my bounty.  I'd share the reward with the lot of you, if you would help hasten the hunt.  Are you interested in hearing more?~
+
+//Dorn
+@1050 = ~You there, <RACE>. You look like you may not be totally worthless.~
+@1051 = ~Why does a big guy like you need me for this task?~
+@1052 = ~I will do as you ask.~
+@1053 = ~Is there a reward for this task?~
+@1054 = ~I need time to prepare.~
+@1055 = ~I am ready now.~
+@1056 = ~Hurry up, <RACE>. This task needs attention soon.~
+@1057 = ~I refuse this task.~
+@1058 = ~You will have treasure and items from their corpses after they are done twitching.~
+@1059 = ~Have you decided to help me confront my old associates?~
+@1060 = ~I will be right behind you. This will be - fun.~
+@1061 = ~My associates will have guards. You will merely provide a distraction so that I may deal with my associates directly.~
+@1062 = ~Cowardly <RACE>! I would deal with them now by myself but they may try to escape if they spot me. I have tracked my old associates for too long to let them get away from me now.~
+@1063 = ~I have found some of my old associates at a nearby clearing. I mean to confront them for double-crossing me. Will you come?~
+@1064 = ~What was it you wanted to do again?~
+@1065 = ~I will remain here in case you find your courage.~
+
+// Neera
+@10000 = ~Hey there! Don't I know you from somewhere?~
+@10001 = ~Huh? What's this?~
+
+// Rasaad
+@10100 = ~Please excuse me. I'm in a hurry.~
+

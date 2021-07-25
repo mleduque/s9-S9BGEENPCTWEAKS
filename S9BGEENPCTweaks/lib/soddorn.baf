@@ -1,0 +1,27 @@
+// SOD Dorn introduction
+
+IF
+	Global("bd_move_dorn","bd0106",0)
+	!Dead("dorn")
+	!InPartyAllowDead("dorn")
+THEN
+	RESPONSE #100
+		SetGlobal("bd_move_dorn","bd0106",1)
+		MoveGlobal("bd0106","dorn",[740.434])
+		ActionOverride("dorn",Face(S))
+		ReallyForceSpellDeadRES("bdrejuve","dorn") // No such index
+		ChangeEnemyAlly("dorn",NEUTRAL)
+		ChangeSpecifics("dorn",ALLIES)
+		ActionOverride("dorn",SetGlobal("bd_joined","locals",0))
+		ActionOverride("dorn",SetGlobal("bd_retreat","locals",1))
+		ActionOverride("dorn",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+		ActionOverride("dorn",ChangeAIScript("bddorn",OVERRIDE))
+		ActionOverride("dorn",ChangeAIScript("",CLASS))
+		ActionOverride("dorn",ChangeAIScript("BDSHOUT",RACE))
+		ActionOverride("dorn",ChangeAIScript("bdpal01",GENERAL))
+		ActionOverride("dorn",ChangeAIScript("",DEFAULT))
+		ActionOverride("dorn",SetDialog("bddorn"))
+		Continue()
+END
+
+//MoveGlobal("bd3000","dorn",[1130.1635])

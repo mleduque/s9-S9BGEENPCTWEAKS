@@ -1,0 +1,97 @@
+// Various functions
+
+
+//used with permission from argent77
+//==================================
+DEFINE_ACTION_FUNCTION A7PassiveNeera
+BEGIN
+  // BG1 portion
+  ACTION_IF (GAME_IS ~bgee eet~) BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~NEERA.BCS~) BEGIN
+      COPY_EXISTING ~NEERA.BCS~ ~override~
+        DECOMPILE_AND_PATCH BEGIN
+          REPLACE_TEXTUALLY CASE_INSENSITIVE ~^[\t ]*Global("NEERA_MEETING",.+)~ ~False()~
+        END BUT_ONLY
+    END
+  END
+
+  // BG2 portion
+  ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~OHNCUT1A.BCS~) BEGIN
+      COPY_EXISTING ~OHNCUT1A.BCS~ ~override~
+        DECOMPILE_AND_PATCH BEGIN
+          REPLACE_TEXTUALLY CASE_INSENSITIVE ~CreateCreature("NEERA.+)~ ~~
+        END BUT_ONLY
+      EXTEND_BOTTOM ~ohncut1a.bcs~ ~%MOD_FOLDER%/scripts/ohncut1a_neera.baf~
+      COMPILE ~%MOD_FOLDER%/scripts/ohnmcut1.baf~
+      COMPILE ~%MOD_FOLDER%/dialogue/neera_bg2.d~
+    END
+  END
+END
+
+DEFINE_ACTION_FUNCTION A7PassiveRasaad
+BEGIN
+  ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~RASAAD.BCS~) BEGIN
+      COPY_EXISTING ~ar2000.bcs~ ~override~
+        DECOMPILE_AND_PATCH BEGIN
+          REPLACE_TEXTUALLY CASE_INSENSITIVE ~CreateCreature("RASAAD8",.*)~ ~CreateCreature("RASAAD8",[1832.1410],SSE)~
+          REPLACE_TEXTUALLY CASE_INSENSITIVE ~CreateCreature("OHRTREYA",.*)~ ~~
+          REPLACE_TEXTUALLY CASE_INSENSITIVE ~CreateCreature("OHRSSM01",.*)~ ~~
+        END BUT_ONLY
+      COPY_EXISTING ~ohrssm01.bcs~ ~override~
+        DECOMPILE_AND_PATCH BEGIN
+          REPLACE_TEXTUALLY CASE_INSENSITIVE ~Range(\[PC\],.*)~ ~Detect([PC])~
+        END BUT_ONLY
+      COMPILE ~%MOD_FOLDER%/dialogue/rasaad_bg2.d~
+    END
+  END
+END
+
+DEFINE_ACTION_FUNCTION A7PassiveHexxat
+BEGIN
+  ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~OHHFAK.BCS~) BEGIN
+      //PRINT ~DEBUG: Hexxat!~
+      COPY_EXISTING ~OHHFAK.BCS~ ~override~
+        DECOMPILE_AND_PATCH BEGIN
+          REPLACE_TEXTUALLY CASE_INSENSITIVE ~Num.*TimesTalkedTo(0)~ ~False()~
+        END BUT_ONLY
+    END
+  END
+END
+//==================================
+
+
+DEFINE_ACTION_FUNCTION S9MoveBaeloth
+BEGIN
+  ACTION_IF (GAME_IS ~bgee eet~) BEGIN
+    COMPILE ~%MOD_FOLDER%/scripts/cutba01.baf~
+  END
+END
+
+DEFINE_ACTION_FUNCTION s9PatchCrePortrait 
+  STR_VAR
+	npc = ""
+	file = ""
+BEGIN
+	ACTION_IF (FILE_EXISTS_IN_GAME ~%npc%.cre~) THEN BEGIN
+		COPY ~s9BGEENPCTweaks\NPC_Portraits\%file%.bmp~ ~override\%file%L.bmp~
+		COPY ~s9BGEENPCTweaks\NPC_Portraits\%file%.bmp~ ~override\%file%M.bmp~
+		COPY ~s9BGEENPCTweaks\NPC_Portraits\%file%.bmp~ ~override\%file%S.bmp~
+	END
+END
+
+DEFINE_ACTION_FUNCTION s9PatchCrePortraitv2
+  STR_VAR
+	npc = ""
+	filea = ""
+	fileb = ""
+BEGIN
+	ACTION_IF (FILE_EXISTS_IN_GAME ~%npc%.cre~) THEN BEGIN
+		COPY ~s9BGEENPCTweaks\NPC_Portraits\%filea%.bmp~ ~override\%fileb%L.bmp~
+		COPY ~s9BGEENPCTweaks\NPC_Portraits\%filea%.bmp~ ~override\%fileb%M.bmp~
+		COPY ~s9BGEENPCTweaks\NPC_Portraits\%filea%.bmp~ ~override\%fileb%S.bmp~
+	END
+END
+
